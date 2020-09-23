@@ -123,13 +123,11 @@ module TicTacToe
 				end
 			end
 
-			idx = 0
-			begin 
+			3.times do | idx |
 				if (test = checkMatch(@board[0][idx], @board[1][idx], @board[2][idx])) then
 					return {'player' => test, 'cells' => [[0, idx], [1, idx], [2, idx]]}
 				end
-				idx += 1
-			end while idx < 3
+			end
 	
 			if (test = checkMatch(@board[0][0], @board[1][1], @board[2][2])) then
 				return {'player' => @board[2][2], 'cells' => [[0, 0], [1, 1], [2, 2]]}

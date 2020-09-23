@@ -41,8 +41,6 @@ module TicTacToe
 		end
 
 		def drawWin(board, winner, cells)
-			iidx = 0
-	
 			puts "\nPlayer #{winner} has won this match!"
 
 			idx = 0
@@ -50,7 +48,7 @@ module TicTacToe
 			board.each do | row |
 				print "\n-------------\n|"
 				row.each do | cell |
-					if (cells.include?([$idx, $iidx]))
+					if (cells.include?([idx, iidx]))
 						print " #{cell} |"
 					else
 						print "   |"
@@ -58,6 +56,7 @@ module TicTacToe
 					iidx = iidx + 1
 				end
 				idx = idx + 1
+				iidx = 0
 			end
 			puts "\n-------------"
 		end
