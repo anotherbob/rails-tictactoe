@@ -28,8 +28,6 @@ module TicTacToe
 					result = requestCell
 				end
 	
-				@board = result['board']
-
 				if (win = checkWinner)
 					declareWin win
 				elsif (boardFull)
@@ -42,9 +40,6 @@ module TicTacToe
 
 		def declareWin(win)
 			winner = win['player']
-			puts winner
-			puts @players.inspect
-			puts @playerScores.inspect
 			@playerScores[winner] = @playerScores[winner] + 1
 			drawWin(winner, win['cells'])
 			printScore
@@ -75,10 +70,10 @@ module TicTacToe
 				printFinalScore
 				exit
 			end
-			addResponse(@board, @players[@currentPlayer], response)
+			addResponse(@players[@currentPlayer], response)
 		end
 
-		def addResponse(board, player, response)
+		def addResponse(player, response)
 			response = response.to_i
 	
 			if (response < 1 || response > 9) then
@@ -100,12 +95,12 @@ module TicTacToe
 	
 			if (@board[row][cell] != '') then
 				@display.warning("Your choice has already been taken")
-				return ['valid' => false]
+				return {'valid' => false}
 			end
 	
 			@board[row][cell] = player
 	
-			{'valid' => true, 'board' => @board}
+			{'valid' => true}
 		end
 
 		def boardFull
