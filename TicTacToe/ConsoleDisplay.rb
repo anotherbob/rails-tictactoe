@@ -1,3 +1,5 @@
+require 'readline'
+
 module TicTacToe
 	class ConsoleDisplay
 		def printScore(players, playerScores)
@@ -71,7 +73,7 @@ module TicTacToe
 			begin
 				Readline.readline
 			rescue
-				puts "Crap"
+				puts "ERROR: No mechanism for accepting input."
 				exit
 			end
 		end

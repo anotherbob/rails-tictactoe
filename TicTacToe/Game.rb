@@ -1,5 +1,3 @@
-require 'readline'
-
 module TicTacToe
 	class Game
 		@display = nil
